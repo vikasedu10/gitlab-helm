@@ -1,0 +1,30 @@
+global:
+  hosts:
+    # domain: <your-domain> # Replace with your domain name
+    https: false
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+  helmInstall: false
+
+  extraEnv:
+    GITLAB_RELATIVE_URL_ROOT: /gitlab
+
+certmanager-issuer:
+  email: vikas@admin.com
+
+gitlab:
+  ingress:
+    path: /gitlab(/|$)(.*)
+
+gitaly:
+  persistence:
+    size: 10Gi
+
+minio:
+  persistence:
+    size: 10Gi
+
+registry:
+  persistence:
+    size: 10Gi

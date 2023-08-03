@@ -10,6 +10,15 @@ global:
   extraEnv:
     GITLAB_RELATIVE_URL_ROOT: /gitlab
 
+  gitlaly:
+    enabled: false
+
+  minio:
+    enabled: false
+
+  kas:
+    enabled: false
+
 certmanager-issuer:
   email: vikas@admin.com
 
@@ -19,12 +28,31 @@ gitlab:
 
 gitaly:
   persistence:
-    size: 10Gi
+    size: 2Gi
 
 minio:
   persistence:
-    size: 10Gi
+    size: 1Gi
 
 registry:
   persistence:
-    size: 10Gi
+    size: 2Gi
+
+upgradeCheck:
+  enabled: false
+
+certmanager:
+  installCRDs: false
+  install: false
+
+nginx-ingress:
+  enabled: false
+
+prometheus:
+  install: false
+
+redis:
+  install: false
+
+postgresql:
+  install: false
